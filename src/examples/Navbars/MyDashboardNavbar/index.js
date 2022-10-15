@@ -47,7 +47,7 @@ import {
   navbarRow,
   navbarIconButton,
   navbarMobileMenu,
-} from "examples/Navbars/DashboardNavbar/styles";
+} from "examples/Navbars/MyDashboardNavbar/styles";
 
 // Vision UI Dashboard React context
 import {
@@ -220,7 +220,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
   );
 }
 
-// Setting default values for the props of Dashboard
+// Setting default values for the props of DashboardNavbar
 DashboardNavbar.defaultProps = {
   absolute: false,
   light: false,

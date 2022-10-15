@@ -45,6 +45,10 @@ import createCache from "@emotion/cache";
 // Vision UI Dashboard React routes
 import routes from "routes";
 
+// Icons
+import { TbLayoutSidebarLeftExpand } from "react-icons/tb";
+import { TbLayoutSidebarLeftCollapse } from "react-icons/tb";
+
 // Vision UI Dashboard React contexts
 import { useVisionUIController, setMiniSidenav, setOpenConfigurator } from "context";
 
@@ -108,6 +112,8 @@ export default function App() {
       return null;
     });
 
+  const handleMiniSidenav = () => setMiniSidenav(dispatch, !miniSidenav);
+
   const configsButton = (
     <VuiBox
       display="flex"
@@ -124,11 +130,13 @@ export default function App() {
       zIndex={99}
       color="white"
       sx={{ cursor: "pointer" }}
-      onClick={handleConfiguratorOpen}
+      onClick={handleMiniSidenav}
     >
-      <Icon fontSize="default" color="inherit">
-        settings
-      </Icon>
+      {miniSidenav ? (
+        <TbLayoutSidebarLeftExpand size="30px" />
+      ) : (
+        <TbLayoutSidebarLeftCollapse size="30px" />
+      )}
     </VuiBox>
   );
 
@@ -153,7 +161,7 @@ export default function App() {
         {layout === "vr" && <Configurator />}
         <Switch>
           {getRoutes(routes)}
-          <Redirect from="*" to="/dashboard" />
+          <Redirect from="*" to="/create" />
         </Switch>
       </ThemeProvider>
     </CacheProvider>

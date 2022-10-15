@@ -39,16 +39,18 @@ import DefaultProjectCard from "examples/Cards/ProjectCards/DefaultProjectCard";
 import Footer from "examples/Footer";
 // Vision UI Dashboard React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
+import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 // Overview page components
 import Header from "layouts/profile/components/Header";
 import PlatformSettings from "layouts/profile/components/PlatformSettings";
 import Welcome from "../profile/components/Welcome/index";
 import CarInformations from "./components/CarInformations";
+import UpscaleInputCard from "./components/UpscaleInput";
 
 function Overview() {
   return (
     <DashboardLayout>
-      <Header />
+      <DashboardNavbar light />
       <VuiBox mt={5} mb={3}>
         <Grid
           container
@@ -84,7 +86,7 @@ function Overview() {
               },
             })}
           >
-            <CarInformations />
+            <UpscaleInputCard />
           </Grid>
           <Grid
             item

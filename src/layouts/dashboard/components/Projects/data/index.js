@@ -1,11 +1,13 @@
 // @mui material components
 import Tooltip from "@mui/material/Tooltip";
+import { Icon } from "@mui/material";
 
 // Vision UI Dashboard React components
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
 import VuiAvatar from "components/VuiAvatar";
 import VuiProgress from "components/VuiProgress";
+import VuiButton from "components/VuiButton";
 
 // Images
 import AdobeXD from "examples/Icons/AdobeXD";
@@ -18,6 +20,9 @@ import avatar1 from "assets/images/avatar1.png";
 import avatar2 from "assets/images/avatar2.png";
 import avatar3 from "assets/images/avatar3.png";
 import avatar4 from "assets/images/avatar4.png";
+
+// Icons
+import { AiOutlineArrowUp } from "react-icons/ai";
 
 export default function data() {
   const avatars = (members) =>
@@ -47,9 +52,10 @@ export default function data() {
 
   return {
     columns: [
-      { name: "companies", align: "left" },
-      { name: "members", align: "left" },
-      { name: "budget", align: "center" },
+      { name: "Date", align: "center" },
+      { name: "Method", align: "left" },
+      { name: "Original image", align: "center" },
+      { name: "Processed image", align: "center" },
       { name: "completion", align: "center" },
     ],
 
@@ -63,27 +69,19 @@ export default function data() {
             </VuiTypography>
           </VuiBox>
         ),
-        members: (
-          <VuiBox display="flex" py={1}>
-            {avatars([
-              [avatar1, "Ryan Tompson"],
-              [avatar2, "Romina Hadid"],
-              [avatar3, "Alexander Smith"],
-              [avatar4, "Jessica Doe"],
-            ])}
-          </VuiBox>
-        ),
-        budget: (
-          <VuiTypography variant="button" color="white" fontWeight="bold">
-            $14,000
-          </VuiTypography>
-        ),
         completion: (
           <VuiBox width="8rem" textAlign="left">
             <VuiTypography color="white" variant="button" fontWeight="bold">
               60%
             </VuiTypography>
             <VuiProgress value={60} color="info" label={false} sx={{ background: "#2D2E5F" }} />
+          </VuiBox>
+        ),
+        Date: (
+          <VuiBox width="8rem" textAlign="center">
+            <VuiTypography color="white" variant="button" fontWeight="bold">
+              14/10/2022
+            </VuiTypography>
           </VuiBox>
         ),
       },
@@ -96,25 +94,19 @@ export default function data() {
             </VuiTypography>
           </VuiBox>
         ),
-        members: (
-          <VuiBox display="flex" py={1}>
-            {avatars([
-              [avatar2, "Romina Hadid"],
-              [avatar4, "Jessica Doe"],
-            ])}
-          </VuiBox>
-        ),
-        budget: (
-          <VuiTypography variant="button" color="white" fontWeight="bold">
-            $3,000
-          </VuiTypography>
-        ),
         completion: (
           <VuiBox width="8rem" textAlign="left">
             <VuiTypography color="white" variant="button" fontWeight="bold">
               10%
             </VuiTypography>
             <VuiProgress value={10} color="info" label={false} sx={{ background: "#2D2E5F" }} />
+          </VuiBox>
+        ),
+        Date: (
+          <VuiBox width="8rem" textAlign="center">
+            <VuiTypography color="white" variant="button" fontWeight="bold">
+              14/10/2022
+            </VuiTypography>
           </VuiBox>
         ),
       },
@@ -127,25 +119,20 @@ export default function data() {
             </VuiTypography>
           </VuiBox>
         ),
-        members: (
-          <VuiBox display="flex" py={1}>
-            {avatars([
-              [avatar1, "Ryan Tompson"],
-              [avatar3, "Alexander Smith"],
-            ])}
-          </VuiBox>
-        ),
-        budget: (
-          <VuiTypography variant="button" color="white" fontWeight="bold">
-            Not set
-          </VuiTypography>
-        ),
         completion: (
           <VuiBox width="8rem" textAlign="left">
+            <VuiBox textAlign="center">
+              <VuiButton variant="gradient" color="primary" iconOnly>
+                <Icon>download</Icon>
+              </VuiButton>
+            </VuiBox>
+          </VuiBox>
+        ),
+        Date: (
+          <VuiBox width="8rem" textAlign="center">
             <VuiTypography color="white" variant="button" fontWeight="bold">
-              100%
+              14/10/2022
             </VuiTypography>
-            <VuiProgress value={100} color="info" label={false} sx={{ background: "#2D2E5F" }} />
           </VuiBox>
         ),
       },
@@ -158,27 +145,19 @@ export default function data() {
             </VuiTypography>
           </VuiBox>
         ),
-        members: (
-          <VuiBox display="flex" py={1}>
-            {avatars([
-              [avatar4, "Jessica Doe"],
-              [avatar3, "Alexander Smith"],
-              [avatar2, "Romina Hadid"],
-              [avatar1, "Ryan Tompson"],
-            ])}
-          </VuiBox>
-        ),
-        budget: (
-          <VuiTypography variant="button" color="white" fontWeight="bold">
-            $20,500
-          </VuiTypography>
-        ),
         completion: (
           <VuiBox width="8rem" textAlign="left">
             <VuiTypography color="white" variant="button" fontWeight="bold">
               100%
             </VuiTypography>
             <VuiProgress value={100} color="info" label={false} sx={{ background: "#2D2E5F" }} />
+          </VuiBox>
+        ),
+        Date: (
+          <VuiBox width="8rem" textAlign="center">
+            <VuiTypography color="white" variant="button" fontWeight="bold">
+              14/10/2022
+            </VuiTypography>
           </VuiBox>
         ),
       },
@@ -191,22 +170,19 @@ export default function data() {
             </VuiTypography>
           </VuiBox>
         ),
-        members: (
-          <VuiBox display="flex" py={1}>
-            {avatars([[avatar4, "Jessica Doe"]])}
-          </VuiBox>
-        ),
-        budget: (
-          <VuiTypography variant="button" color="white" fontWeight="bold">
-            $500
-          </VuiTypography>
-        ),
         completion: (
           <VuiBox width="8rem" textAlign="left">
             <VuiTypography color="white" variant="button" fontWeight="bold">
               25%
             </VuiTypography>
             <VuiProgress value={25} color="info" label={false} sx={{ background: "#2D2E5F" }} />
+          </VuiBox>
+        ),
+        Date: (
+          <VuiBox width="8rem" textAlign="center">
+            <VuiTypography color="white" variant="button" fontWeight="bold">
+              14/10/2022
+            </VuiTypography>
           </VuiBox>
         ),
       },
@@ -219,25 +195,19 @@ export default function data() {
             </VuiTypography>
           </VuiBox>
         ),
-        members: (
-          <VuiBox display="flex" py={1}>
-            {avatars([
-              [avatar1, "Ryan Tompson"],
-              [avatar4, "Jessica Doe"],
-            ])}
-          </VuiBox>
-        ),
-        budget: (
-          <VuiTypography variant="button" color="white" fontWeight="bold">
-            $2,000
-          </VuiTypography>
-        ),
         completion: (
           <VuiBox width="8rem" textAlign="left">
             <VuiTypography color="white" variant="button" fontWeight="bold">
               40%
             </VuiTypography>
             <VuiProgress value={40} color="info" label={false} sx={{ background: "#2D2E5F" }} />
+          </VuiBox>
+        ),
+        Date: (
+          <VuiBox width="8rem" textAlign="center">
+            <VuiTypography color="white" variant="button" fontWeight="bold">
+              14/10/2022
+            </VuiTypography>
           </VuiBox>
         ),
       },
