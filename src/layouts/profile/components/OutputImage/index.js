@@ -1,0 +1,70 @@
+/*!
+
+=========================================================
+* Vision UI Free React - v1.0.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/vision-ui-free-react
+* Copyright 2021 Creative Tim (https://www.creative-tim.com/)
+* Licensed under MIT (https://github.com/creativetimofficial/vision-ui-free-react/blob/master LICENSE.md)
+
+* Design and Coded by Simmmple & Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+*/
+// MUI
+import {
+  Card,
+  Grid,
+  Icon,
+  FormControl,
+  FormHelperText,
+  Select,
+  MenuItem,
+  Image,
+} from "@mui/material";
+import SelectChangeEvent from "@mui/material/Select";
+import React from "react";
+import welcome from "assets/images/welcome-profile.png";
+import VuiTypography from "components/VuiTypography/index";
+import VuiBox from "components/VuiBox/index";
+import VuiInput from "components/VuiInput/index";
+import VuiButton from "components/VuiButton/index";
+
+// Icons
+import highResImage from "assets/images/high_res_main.jpg";
+
+// Images
+import defaultImage from "assets/images/low_res_main.png";
+
+const Welcome = () => {
+  return (
+    <Card
+      sx={({ breakpoints }) => ({
+        background: `url(${welcome})`,
+        backgroundSize: "cover",
+        borderRadius: "20px",
+        height: "100%",
+        [breakpoints.only("xl")]: {
+          gridArea: "1 / 1 / 2 / 2",
+        },
+      })}
+    >
+      <VuiBox display="flex" flexDirection="column" sx={{ height: "100%" }}>
+        <VuiBox display="flex" flexDirection="column" mb="auto">
+          <VuiTypography color="white" variant="h3" fontWeight="bold" mb="3px">
+            Output
+          </VuiTypography>
+        </VuiBox>
+        <VuiBox display="flex" flexDirection="column" mb="auto">
+          <img src={highResImage} />
+        </VuiBox>
+      </VuiBox>
+    </Card>
+  );
+};
+
+export default Welcome;

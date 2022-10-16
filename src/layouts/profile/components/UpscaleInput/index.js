@@ -1,19 +1,25 @@
 import React from "react";
-import { Card, Stack, Grid, Input } from "@mui/material";
+import {
+  Card,
+  Stack,
+  Grid,
+  Input,
+  Icon,
+  FormControl,
+  InputLabel,
+  FormHelperText,
+  FormGroup,
+  Switch,
+  FormControlLabel,
+  FormLabel,
+  RadioGroup,
+  Radio,
+} from "@mui/material";
 import VuiButton from "components/VuiButton";
 import VuiBox from "components/VuiBox";
 import VuiInput from "components/VuiInput";
 import VuiTypography from "components/VuiTypography";
-import GreenLightning from "assets/images/shapes/green-lightning.svg";
-import WhiteLightning from "assets/images/shapes/white-lightning.svg";
-import linearGradient from "assets/theme/functions/linearGradient";
-import colors from "assets/theme/base/colors";
-import carProfile from "assets/images/shapes/car-profile.svg";
-import LineChart from "examples/Charts/LineCharts/LineChart";
-import { lineChartDataProfile1, lineChartDataProfile2 } from "variables/charts";
-import { lineChartOptionsProfile2, lineChartOptionsProfile1 } from "variables/charts";
-import CircularProgress from "@mui/material/CircularProgress";
-import Label from "@mui/material";
+
 const UpscaleInputCard = () => {
   return (
     <Card
@@ -22,7 +28,14 @@ const UpscaleInputCard = () => {
           maxHeight: "400px",
         },
       })}
+      bgColor="primary"
     >
+      <VuiInput
+        type="file"
+        accept="image/*"
+        style={{ visibility: "hidden" }}
+        id="contained-button-file"
+      />
       <Grid
         container
         sx={({ breakpoints }) => ({
@@ -41,23 +54,44 @@ const UpscaleInputCard = () => {
           },
         })}
       >
-        <Grid item sx={6} lg={3}>
-          <VuiInput
-            type="file"
-            accept="image/*"
-            style={{ visibility: "hidden" }}
-            id="contained-button-file"
-          />
-          <label htmlFor="contained-button-file">
-            <VuiButton
-              htmlFor="contained-button-file"
-              variant="contained"
-              color="primary"
-              component="span"
-            >
-              Upload 
-            </VuiButton>
-          </label>
+        <FormControl>
+          <InputLabel htmlFor="my-input">Email address</InputLabel>
+          <Input id="my-input" aria-describedby="my-helper-text" />
+          <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+          <FormGroup>
+            <FormControlLabel control={<Switch defaultChecked />} label="Label" />
+            <FormControlLabel disabled control={<Switch />} label="Disabled" />
+          </FormGroup>
+          <FormLabel id="demo-row-radio-buttons-group-label" color="white">
+            Method
+          </FormLabel>
+          <RadioGroup
+            row
+            aria-labelledby="demo-row-radio-buttons-group-label"
+            name="row-radio-buttons-group"
+          >
+            <FormControlLabel value="EDSR" control={<Radio />} label="EDSR" />
+            <FormControlLabel value="ESPCN" control={<Radio />} label="ESPCN" />
+            <FormControlLabel value="FSRCNN" control={<Radio />} label="FSRCNN" />
+            <FormControlLabel value="LapSRN" control={<Radio />} label="LapSRN" />
+          </RadioGroup>
+        </FormControl>
+        <Grid item sx={12}>
+          <VuiBox mb={5}>
+            <label htmlFor="contained-button-file">
+              <VuiTypography variant="h5" color="text" size="18px">
+                Content image
+                <VuiButton
+                  htmlFor="contained-button-file"
+                  variant="contained"
+                  color="primary"
+                  component="span"
+                >
+                  <Icon>upload</Icon>
+                </VuiButton>
+              </VuiTypography>
+            </label>
+          </VuiBox>
         </Grid>
       </Grid>
     </Card>
