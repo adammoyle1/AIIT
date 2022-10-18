@@ -24,7 +24,6 @@ import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 // @mui material components
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import Icon from "@mui/material/Icon";
 
 // Vision UI Dashboard React components
 import VuiBox from "components/VuiBox";
@@ -44,6 +43,10 @@ import createCache from "@emotion/cache";
 
 // Vision UI Dashboard React routes
 import routes from "routes";
+
+// Icons
+import { TbLayoutSidebarLeftExpand } from "react-icons/tb";
+import { TbLayoutSidebarLeftCollapse } from "react-icons/tb";
 
 // Vision UI Dashboard React contexts
 import { useVisionUIController, setMiniSidenav, setOpenConfigurator } from "context";
@@ -108,6 +111,8 @@ export default function App() {
       return null;
     });
 
+  const handleMiniSidenav = () => setMiniSidenav(dispatch, !miniSidenav);
+
   const configsButton = (
     <VuiBox
       display="flex"
@@ -124,11 +129,13 @@ export default function App() {
       zIndex={99}
       color="white"
       sx={{ cursor: "pointer" }}
-      onClick={handleConfiguratorOpen}
+      onClick={handleMiniSidenav}
     >
-      <Icon fontSize="default" color="inherit">
-        settings
-      </Icon>
+      {miniSidenav ? (
+        <TbLayoutSidebarLeftExpand size="30px" />
+      ) : (
+        <TbLayoutSidebarLeftCollapse size="30px" />
+      )}
     </VuiBox>
   );
 
@@ -141,7 +148,7 @@ export default function App() {
             <Sidenav
               color={sidenavColor}
               brand=""
-              brandName="VISION UI FREE"
+              brandName="AI Image Tools"
               routes={routes}
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
@@ -151,10 +158,7 @@ export default function App() {
           </>
         )}
         {layout === "vr" && <Configurator />}
-        <Switch>
-          {getRoutes(routes)}
-          <Redirect from="*" to="/dashboard" />
-        </Switch>
+        <Switch>{getRoutes(routes)}</Switch>
       </ThemeProvider>
     </CacheProvider>
   ) : (
@@ -165,7 +169,7 @@ export default function App() {
           <Sidenav
             color={sidenavColor}
             brand=""
-            brandName="VISION UI FREE"
+            brandName="AI Image Tools"
             routes={routes}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
@@ -177,7 +181,7 @@ export default function App() {
       {layout === "vr" && <Configurator />}
       <Switch>
         {getRoutes(routes)}
-        <Redirect from="*" to="/dashboard" />
+        <Redirect from="*" to="/create" />
       </Switch>
     </ThemeProvider>
   );

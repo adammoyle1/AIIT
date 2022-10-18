@@ -44,36 +44,13 @@ const Welcome = () => {
     setModel(event.target.value);
   };
 
-  const handleFactorChange = (event: SelectChangeEvent) => {
-    setFactor(event.target.value);
-  };
-
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
       setImage(URL.createObjectURL(event.target.files[0]));
     }
   };
 
-  const onSubmit = async (event) => {
-    console.log(model);
-    console.log(factor);
-    console.log(image);
-
-    const res = await fetch("/api/upscale", {
-      method: "POST",
-      body: {
-        image: image,
-        model: model,
-        facto: factor,
-      },
-    });
-    const data = await res.text();
-    console.log(data);
-  };
-
-  const [age, setAge] = React.useState("");
   const [model, setModel] = React.useState("");
-  const [factor, setFactor] = React.useState("");
   const [image, setImage] = React.useState("");
 
   return (
@@ -91,7 +68,7 @@ const Welcome = () => {
       <VuiBox display="flex" flexDirection="column" sx={{ height: "100%" }}>
         <VuiBox justify-content="center" display="flex" flexDirection="column" mb="auto">
           <VuiTypography color="white" variant="h3" fontWeight="bold" mb="3px">
-            Upscaler
+            Detector
           </VuiTypography>
           <VuiTypography color="white" variant="button" fontWeight="regular">
             Configure the settings to reach your needs
@@ -101,7 +78,7 @@ const Welcome = () => {
         <VuiBox display="flex" sx={{ height: "5%" }}></VuiBox>
 
         <Grid container spacing={0}>
-          <Grid item xxs={12} xs={12} md={6} xl={4} xxl={3}>
+          <Grid item xxs={6} xs={6} md={3} lg={3}>
             <FormControl>
               <Select
                 value={model}
@@ -109,15 +86,12 @@ const Welcome = () => {
                 displayEmpty
                 inputProps={{ "aria-label": "Without label" }}
                 autoWidth
-                name="model"
               >
-                <MenuItem value="">Model</MenuItem>
-                <MenuItem value={10}>
-                  <em>EDSR</em>
+                <MenuItem value="">
+                  <em>RetinaNet</em>
                 </MenuItem>
-                <MenuItem value={20}>ESPCN</MenuItem>
-                <MenuItem value={30}>FSRCNN</MenuItem>
-                <MenuItem value={40}>LapSRN</MenuItem>
+                <MenuItem value={20}>SmallYOLOv5</MenuItem>
+                <MenuItem value={30}>TinyYOLOv5</MenuItem>
               </Select>
               <FormHelperText>
                 <VuiTypography variant="caption" color="white" fontWeight="light">
@@ -126,32 +100,6 @@ const Welcome = () => {
               </FormHelperText>
             </FormControl>
           </Grid>
-          <Grid item xxs={12} xs={12} md={6} xl={6}>
-            <FormControl>
-              <Select
-                value={factor}
-                onChange={handleFactorChange}
-                displayEmpty
-                inputProps={{ "aria-label": "Without label" }}
-                autoWidth
-              >
-                <MenuItem value="">Factor</MenuItem>
-                <MenuItem value={2}>
-                  <em>x2</em>
-                </MenuItem>
-                <MenuItem value={3}>x3</MenuItem>
-                <MenuItem value={4}>x4</MenuItem>
-                <MenuItem value={6}>x6</MenuItem>
-                <MenuItem value={8}>x8</MenuItem>
-              </Select>
-              <FormHelperText>
-                <VuiTypography variant="caption" color="white" fontWeight="light">
-                  Upscaling Factor
-                </VuiTypography>
-              </FormHelperText>
-            </FormControl>
-          </Grid>
-          <Grid item xs={5}></Grid>
         </Grid>
 
         <VuiBox display="flex" flexDirection="column" mb="auto">
@@ -187,7 +135,7 @@ const Welcome = () => {
           </label>
         </Grid>
         <Grid item xs={12} justifyContent="center" alignItems="center" display="flex">
-          <VuiButton onClick={onSubmit} color="success">
+          <VuiButton color="success">
             <VuiTypography color="white">
               <PlayArrowIcon sx={{ fontSize: 40 }} />
             </VuiTypography>

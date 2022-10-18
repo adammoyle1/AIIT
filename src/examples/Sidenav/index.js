@@ -170,26 +170,14 @@ function Sidenav({ color, brandName, routes, ...rest }) {
               ((theme) => sidenavLogoLabel(theme, { miniSidenav }),
               {
                 display: "flex",
-                alignItems: "center",
+                alignItems: "left",
                 margin: "0 auto",
               })
             }
           >
-            <VuiBox
-              display="flex"
-              sx={
-                ((theme) => sidenavLogoLabel(theme, { miniSidenav, transparentSidenav }),
-                {
-                  mr: miniSidenav || (miniSidenav && transparentSidenav) ? 0 : 1,
-                })
-              }
-            >
-              <SimmmpleLogo size="24px" />
-            </VuiBox>
             <VuiTypography
               variant="button"
-              textGradient={true}
-              color="logo"
+              color="white"
               fontSize={14}
               letterSpacing={2}
               fontWeight="medium"
@@ -202,7 +190,7 @@ function Sidenav({ color, brandName, routes, ...rest }) {
                 })
               }
             >
-              {brandName}
+              AI IMAGE TOOLS
             </VuiTypography>
           </VuiBox>
         </VuiBox>
@@ -224,22 +212,7 @@ function Sidenav({ color, brandName, routes, ...rest }) {
             pt: 2,
           },
         })}
-      >
-        <SidenavCard color={color} />
-        <VuiBox mt={2}>
-          <VuiButton
-            component="a"
-            href="https://creative-tim.com/product/vision-ui-dashboard-pro-react"
-            target="_blank"
-            rel="noreferrer"
-            variant="gradient"
-            color={color}
-            fullWidth
-          >
-            Upgrade to PRO
-          </VuiButton>
-        </VuiBox>
-      </VuiBox>
+      ></VuiBox>
     </SidenavRoot>
   );
 }

@@ -55,39 +55,37 @@ function SidenavCard({ color, ...rest }) {
         </VuiBox>
         <VuiBox lineHeight={1}>
           <VuiTypography variant="h6" color="white">
-            Need help?
+            Not signed up?
           </VuiTypography>
           <VuiBox mb={1.825} mt={-1}>
             <VuiTypography variant="caption" color="white" fontWeight="regular">
-              Please check our docs
+              Click below to register!
             </VuiTypography>
           </VuiBox>
-          <VuiButton
-            component={Link}
-            href="https://www.creative-tim.com/learning-lab/react/quick-start/vision-ui-dashboard/"
-            target="_blank"
-            rel="noreferrer"
-            size="small"
-            // sx={{ color: "white !important", background: "red" }}
-            sx={({ palette: { gradients, white }, functions: { linearGradient } }) => ({
-              color: `${white.main} !important`,
-              background: linearGradient(
-                gradients.cardDark.main,
-                gradients.cardDark.state,
-                gradients.cardDark.deg
-              ),
-              "&:hover": {
+          <Link to="/authentication/sign-up">
+            <VuiButton
+              size="small"
+              // sx={{ color: "white !important", background: "red" }}
+              sx={({ palette: { gradients, white }, functions: { linearGradient } }) => ({
+                color: `${white.main} !important`,
                 background: linearGradient(
                   gradients.cardDark.main,
                   gradients.cardDark.state,
                   gradients.cardDark.deg
                 ),
-              },
-            })}
-            fullWidth
-          >
-            DOCUMENTATION
-          </VuiButton>
+                "&:hover": {
+                  background: linearGradient(
+                    gradients.cardDark.main,
+                    gradients.cardDark.state,
+                    gradients.cardDark.deg
+                  ),
+                },
+              })}
+              fullWidth
+            >
+              REGISTER
+            </VuiButton>
+          </Link>
         </VuiBox>
       </CardContent>
     </Card>

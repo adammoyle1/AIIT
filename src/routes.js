@@ -43,6 +43,7 @@ import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
+import ObjectDetector from "layouts/ObjectDetector";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
@@ -51,58 +52,46 @@ import SignUp from "layouts/authentication/sign-up";
 import { IoRocketSharp } from "react-icons/io5";
 import { IoIosDocument } from "react-icons/io";
 import { BsFillPersonFill } from "react-icons/bs";
+import { IoCreateSharp } from "react-icons/io5";
+import { MdZoomOutMap } from "react-icons/md";
 import { IoBuild } from "react-icons/io5";
 import { BsCreditCardFill } from "react-icons/bs";
 import { IoStatsChart } from "react-icons/io5";
 import { IoHome } from "react-icons/io5";
 
+// MUI icons
+import ImageSearchIcon from "@mui/icons-material/ImageSearch";
+
 const routes = [
+  { type: "title", title: "Tools", key: "tools" },
   {
     type: "collapse",
-    name: "Dashboard",
-    key: "dashboard",
-    route: "/dashboard",
-    icon: <IoHome size="15px" color="inherit" />,
+    name: "Create",
+    key: "create",
+    route: "/create",
+    icon: <IoCreateSharp size="15px" color="inherit" />,
     component: Dashboard,
     noCollapse: true,
   },
   {
     type: "collapse",
-    name: "Tables",
-    key: "tables",
-    route: "/tables",
-    icon: <IoStatsChart size="15px" color="inherit" />,
-    component: Tables,
-    noCollapse: true,
-  },
-  {
-    type: "collapse",
-    name: "Billing",
-    key: "billing",
-    route: "/billing",
-    icon: <BsCreditCardFill size="15px" color="inherit" />,
-    component: Billing,
-    noCollapse: true,
-  },
-  {
-    type: "collapse",
-    name: "RTL",
-    key: "rtl",
-    route: "/rtl",
-    icon: <IoBuild size="15px" color="inherit" />,
-    component: RTL,
-    noCollapse: true,
-  },
-  { type: "title", title: "Account Pages", key: "account-pages" },
-  {
-    type: "collapse",
-    name: "Profile",
-    key: "profile",
-    route: "/profile",
-    icon: <BsFillPersonFill size="15px" color="inherit" />,
+    name: "Upscaler",
+    key: "upscale",
+    route: "/upscale",
+    icon: <MdZoomOutMap size="15px" color="inherit" />,
     component: Profile,
     noCollapse: true,
   },
+  {
+    type: "collapse",
+    name: "Object Detector",
+    key: "detect",
+    route: "/detect",
+    icon: <ImageSearchIcon size="15px" color="inherit" />,
+    component: ObjectDetector,
+    noCollapse: true,
+  },
+  { type: "title", title: "User Pages", key: "user_pages" },
   {
     type: "collapse",
     name: "Sign In",
