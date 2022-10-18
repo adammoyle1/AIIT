@@ -125,7 +125,7 @@ function Dashboard() {
                 name="Upscaler"
                 description="Improve the quality of your images in seconds using AI upscaling"
                 button_text="Upscale"
-                button_link="/Upscale"
+                button_link="/upscale"
                 img={gif}
               />
             </Grid>
@@ -153,6 +153,16 @@ function Dashboard() {
                 name="Object Remover"
                 description="Remove objects using AI to perfect your photos and images"
                 button_text="Remove objects"
+                img={hazy_fog_img}
+              />
+            </Grid>
+
+            <Grid item xs={12} md={6} lg={4} xl={3}>
+              <ToolCard
+                name="Object Detector"
+                description="Detect and classify objects in your images"
+                button_text="Detect objects"
+                button_link="/detect"
                 img={hazy_fog_img}
               />
             </Grid>

@@ -43,6 +43,7 @@ import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
+import ObjectDetector from "layouts/ObjectDetector";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
@@ -58,6 +59,9 @@ import { BsCreditCardFill } from "react-icons/bs";
 import { IoStatsChart } from "react-icons/io5";
 import { IoHome } from "react-icons/io5";
 
+// MUI icons
+import ImageSearchIcon from "@mui/icons-material/ImageSearch";
+
 const routes = [
   { type: "title", title: "Tools", key: "tools" },
   {
@@ -71,23 +75,23 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Upscale",
+    name: "Upscaler",
     key: "upscale",
     route: "/upscale",
     icon: <MdZoomOutMap size="15px" color="inherit" />,
     component: Profile,
     noCollapse: true,
   },
-  { type: "title", title: "User Pages", key: "user_pages" },
   {
     type: "collapse",
-    name: "Profile",
-    key: "profile",
-    route: "/profile",
-    icon: <IoIosDocument size="15px" color="inherit" />,
-    component: Profile,
+    name: "Object Detector",
+    key: "detect",
+    route: "/detect",
+    icon: <ImageSearchIcon size="15px" color="inherit" />,
+    component: ObjectDetector,
     noCollapse: true,
   },
+  { type: "title", title: "User Pages", key: "user_pages" },
   {
     type: "collapse",
     name: "Sign In",

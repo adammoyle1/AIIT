@@ -26,9 +26,10 @@ import Projects from "layouts/dashboard/components/Projects/index.js";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 // Overview page components
-import Welcome from "../profile/components/Welcome/index";
-import OutputImage from "../profile/components/OutputImage/index";
-import ImageTimeline from "../profile/components/ImageTimeline/index.js";
+
+import Welcome from "./components/ObjectDetector/index";
+import OutputImage from "./components/OutputImage/index";
+import ImageTimeline from "./components/ImageTimeline/index.js";
 
 function Overview() {
   return (

@@ -28,6 +28,7 @@ function Footer() {
       justifyContent="space-between"
       direction="row"
       component="footer"
+      position="bottom"
       py={2}
       pb={0}
     >
