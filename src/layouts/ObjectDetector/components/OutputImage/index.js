@@ -16,7 +16,7 @@
 
 */
 // MUI
-import { Card } from "@mui/material";
+import { Card, Grid } from "@mui/material";
 // React
 import React from "react";
 // Images
@@ -26,8 +26,8 @@ import VuiTypography from "components/VuiTypography/index";
 import VuiBox from "components/VuiBox/index";
 import VuiInput from "components/VuiInput/index";
 import VuiButton from "components/VuiButton/index";
-// Icons
-import highResImage from "assets/images/high_res_main.jpg";
+// Image
+import defaultImage from "assets/images/detect_right.png";
 
 const Welcome = () => {
   return (
@@ -43,13 +43,14 @@ const Welcome = () => {
       })}
     >
       <VuiBox display="flex" flexDirection="column" sx={{ height: "100%" }}>
-        <VuiBox display="flex" flexDirection="column" mb="auto">
+        <VuiBox display="flex" flexDirection="column">
           <VuiTypography color="white" variant="h3" fontWeight="bold" mb="3px">
             Output
           </VuiTypography>
         </VuiBox>
-        <VuiBox display="flex" flexDirection="column" mb="auto">
-          <img src={highResImage} />
+        <VuiBox sx={{ height: "25%" }}></VuiBox>
+        <VuiBox display="flex" flexDirection="column">
+          <img src={defaultImage} />
         </VuiBox>
       </VuiBox>
     </Card>
