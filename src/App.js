@@ -21,7 +21,7 @@ import { useState, useEffect, useMemo } from "react";
 // react-router components
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 
-// @mui material components
+// @mui material component
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 

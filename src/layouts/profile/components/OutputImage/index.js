@@ -16,7 +16,7 @@
 
 */
 // MUI
-import { Card } from "@mui/material";
+import { Card, Grid } from "@mui/material";
 // React
 import React from "react";
 // Images
@@ -43,12 +43,13 @@ const Welcome = () => {
       })}
     >
       <VuiBox display="flex" flexDirection="column" sx={{ height: "100%" }}>
-        <VuiBox display="flex" flexDirection="column" mb="auto">
+        <VuiBox display="flex" flexDirection="column">
           <VuiTypography color="white" variant="h3" fontWeight="bold" mb="3px">
             Output
           </VuiTypography>
         </VuiBox>
-        <VuiBox display="flex" flexDirection="column" mb="auto">
+        <VuiBox sx={{ height: "25%" }}></VuiBox>
+        <VuiBox display="flex" flexDirection="column">
           <img src={highResImage} />
         </VuiBox>
       </VuiBox>

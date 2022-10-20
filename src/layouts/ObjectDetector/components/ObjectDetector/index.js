@@ -36,8 +36,8 @@ import VuiButton from "components/VuiButton/index";
 // Icons
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
-// Images
-import defaultImage from "assets/images/low_res_main.png";
+// Imagess
+import defaultImage from "assets/images/detect_left.jpeg";
 
 const Welcome = () => {
   const handleModelChange = (event: SelectChangeEvent) => {
