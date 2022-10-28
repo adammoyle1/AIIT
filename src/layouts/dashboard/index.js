@@ -120,7 +120,7 @@ function Dashboard() {
 
         <VuiBox mb={3}>
           <Grid container spacing="18px">
-            <Grid item xs={12} md={6} lg={4} xl={3}>
+            <Grid item xs={12} md={6} lg={3} xl={3}>
               <ToolCard
                 name="Upscaler"
                 description="Improve the quality of your images in seconds using AI upscaling"
@@ -130,25 +130,27 @@ function Dashboard() {
               />
             </Grid>
 
-            <Grid item xs={12} md={6} lg={4} xl={3}>
+            <Grid item xs={12} md={6} lg={3} xl={3}>
               <ToolCard
                 name="Style transfer"
                 description="Use neural style transfer to apply any style to a target image"
                 button_text="Style transfer"
+                button_link="/transfer"
                 img={style_transfer_img}
               />
             </Grid>
 
-            <Grid item xs={12} md={6} lg={4} xl={3}>
+            <Grid item xs={12} md={6} lg={3} xl={3}>
               <ToolCard
                 name="Colorizer"
                 description="Use AI to bring old photos back to life"
                 button_text="Colorize"
+                button_link="/colorize"
                 img={colorize_img}
               />
             </Grid>
 
-            <Grid item xs={12} md={6} lg={4} xl={3}>
+            <Grid item xs={12} md={6} lg={3} xl={3}>
               <ToolCard
                 name="Object Remover"
                 description="Remove objects using AI to perfect your photos and images"

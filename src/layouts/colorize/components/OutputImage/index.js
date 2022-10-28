@@ -28,6 +28,8 @@ import VuiInput from "components/VuiInput/index";
 import VuiButton from "components/VuiButton/index";
 // Image
 import defaultImage from "assets/images/detect_right.png";
+import defaultImage2 from "assets/images/style_transfer_img.jpg";
+import defaultImage3 from "assets/images/cardimgfree.png";
 // Image magnifiers
 import { GlassMagnifier } from "react-image-magnifiers";
 
@@ -52,7 +54,7 @@ const Welcome = () => {
         </VuiBox>
         <VuiBox sx={{ height: "25%" }}></VuiBox>
         <VuiBox display="flex" flexDirection="column">
-          <GlassMagnifier imageSrc={defaultImage} allowOverflow="true" />
+          <GlassMagnifier imageSrc={defaultImage3} allowOverflow="true" />
         </VuiBox>
       </VuiBox>
     </Card>

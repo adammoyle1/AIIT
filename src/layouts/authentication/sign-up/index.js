@@ -52,8 +52,29 @@ import bgSignIn2 from "assets/images/high_res_main.jpg";
 
 function SignIn() {
   const [rememberMe, setRememberMe] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    console.log(email);
+    console.log(password);
+    console.log(username);
+
+    const rawResponse = await fetch("https://88.208.240.158:80/register", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: { email }, username: { username }, password: { password } }),
+    });
+
+    console.log(rawResponse);
+  };
 
   return (
     <CoverLayout
@@ -86,11 +107,10 @@ function SignIn() {
           >
             Register
           </VuiTypography>
-
           <VuiBox mb={2}>
             <VuiBox mb={1} ml={0.5}>
               <VuiTypography component="label" variant="button" color="white" fontWeight="medium">
-                Name
+                Username
               </VuiTypography>
             </VuiBox>
             <GradientBorder
@@ -108,6 +128,7 @@ function SignIn() {
                 sx={({ typography: { size } }) => ({
                   fontSize: size.sm,
                 })}
+                onInput={(e) => setUsername(e.target.value)}
               />
             </GradientBorder>
           </VuiBox>
@@ -133,6 +154,7 @@ function SignIn() {
                 sx={({ typography: { size } }) => ({
                   fontSize: size.sm,
                 })}
+                onInput={(e) => setEmail(e.target.value)}
               />
             </GradientBorder>
           </VuiBox>
@@ -158,6 +180,7 @@ function SignIn() {
                 sx={({ typography: { size } }) => ({
                   fontSize: size.sm,
                 })}
+                onInput={(e) => setPassword(e.target.value)}
               />
             </GradientBorder>
           </VuiBox>
@@ -174,7 +197,7 @@ function SignIn() {
             </VuiTypography>
           </VuiBox>
           <VuiBox mt={4} mb={1}>
-            <VuiButton color="info" fullWidth>
+            <VuiButton color="info" fullWidth onClick={onSubmit}>
               SIGN UP
             </VuiButton>
           </VuiBox>
