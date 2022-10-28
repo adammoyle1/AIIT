@@ -44,9 +44,11 @@ import Tables from "layouts/tables";
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
 import ObjectDetector from "layouts/ObjectDetector";
+import Transfer from "layouts/transfer";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+import Colorize from "layouts/colorize";
 
 // Vision UI Dashboard React icons
 import { IoRocketSharp } from "react-icons/io5";
@@ -58,6 +60,8 @@ import { IoBuild } from "react-icons/io5";
 import { BsCreditCardFill } from "react-icons/bs";
 import { IoStatsChart } from "react-icons/io5";
 import { IoHome } from "react-icons/io5";
+import { RiSendBackward } from "react-icons/ri";
+import { IoMdColorFill } from "react-icons/io";
 
 // MUI icons
 import ImageSearchIcon from "@mui/icons-material/ImageSearch";
@@ -84,11 +88,29 @@ const routes = [
   },
   {
     type: "collapse",
+    name: "Colorizer",
+    key: "colorize",
+    route: "/colorize",
+    icon: <IoMdColorFill size="15px" color="inherit" />,
+    component: Colorize,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
     name: "Object Detector",
     key: "detect",
     route: "/detect",
     icon: <ImageSearchIcon size="15px" color="inherit" />,
     component: ObjectDetector,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Style Transfer",
+    key: "transfer",
+    route: "/transfer",
+    icon: <RiSendBackward size="15px" color="inherit" />,
+    component: Transfer,
     noCollapse: true,
   },
   { type: "title", title: "User Pages", key: "user_pages" },

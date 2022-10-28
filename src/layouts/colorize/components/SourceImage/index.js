@@ -37,7 +37,7 @@ import VuiButton from "components/VuiButton/index";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
 // Imagess
-import defaultImage from "assets/images/detect_left.jpeg";
+import defaultImage3 from "assets/images/image-bw.jpg";
 
 // Image magnifiers
 import { GlassMagnifier } from "react-image-magnifiers";
@@ -71,7 +71,7 @@ const Welcome = () => {
       <VuiBox display="flex" flexDirection="column" sx={{ height: "100%" }}>
         <VuiBox justify-content="center" display="flex" flexDirection="column" mb="auto">
           <VuiTypography color="white" variant="h3" fontWeight="bold" mb="3px">
-            Detector
+            Source Image
           </VuiTypography>
           <VuiTypography color="white" variant="button" fontWeight="regular">
             Configure the settings to reach your needs
@@ -98,7 +98,7 @@ const Welcome = () => {
               </Select>
               <FormHelperText>
                 <VuiTypography variant="caption" color="white" fontWeight="light">
-                  Detection model
+                  Upscaling model
                 </VuiTypography>
               </FormHelperText>
             </FormControl>
@@ -110,10 +110,11 @@ const Welcome = () => {
             Select your image
           </VuiTypography>
         </VuiBox>
-      </VuiBox>
-      <VuiBox height="20px"></VuiBox>
-      <VuiBox display="flex" flexDirection="column" sx={{ height: "100%" }}>
-        <GlassMagnifier imageSrc={image ? image : defaultImage} />
+
+        <VuiBox height="20px"></VuiBox>
+        <VuiBox display="flex" flexDirection="column" sx={{ height: "100%" }}>
+          <GlassMagnifier imageSrc={image ? image : defaultImage3} />
+        </VuiBox>
       </VuiBox>
       <Grid container rowSpacing={2}>
         <VuiInput
@@ -136,13 +137,6 @@ const Welcome = () => {
               </VuiButton>
             </VuiTypography>
           </label>
-        </Grid>
-        <Grid item xs={12} justifyContent="center" alignItems="center" display="flex">
-          <VuiButton color="success">
-            <VuiTypography color="white">
-              <PlayArrowIcon sx={{ fontSize: 40 }} />
-            </VuiTypography>
-          </VuiButton>
         </Grid>
       </Grid>
     </Card>

@@ -38,6 +38,7 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
 // Imagess
 import defaultImage from "assets/images/detect_left.jpeg";
+import defaultImage2 from "assets/images/cardimgfree.png";
 
 // Image magnifiers
 import { GlassMagnifier } from "react-image-magnifiers";
@@ -49,12 +50,13 @@ const Welcome = () => {
 
   const onImageChange = (event) => {
     if (event.target.files && event.target.files[0]) {
-      setImage(URL.createObjectURL(event.target.files[0]));
+      setSourceImage(URL.createObjectURL(event.target.files[0]));
     }
   };
 
   const [model, setModel] = React.useState("");
-  const [image, setImage] = React.useState("");
+
+  const [sourceImage, setSourceImage] = React.useState("");
 
   return (
     <Card
@@ -71,7 +73,7 @@ const Welcome = () => {
       <VuiBox display="flex" flexDirection="column" sx={{ height: "100%" }}>
         <VuiBox justify-content="center" display="flex" flexDirection="column" mb="auto">
           <VuiTypography color="white" variant="h3" fontWeight="bold" mb="3px">
-            Detector
+            Source Image
           </VuiTypography>
           <VuiTypography color="white" variant="button" fontWeight="regular">
             Configure the settings to reach your needs
@@ -98,7 +100,7 @@ const Welcome = () => {
               </Select>
               <FormHelperText>
                 <VuiTypography variant="caption" color="white" fontWeight="light">
-                  Detection model
+                  Upscaling model
                 </VuiTypography>
               </FormHelperText>
             </FormControl>
@@ -110,24 +112,25 @@ const Welcome = () => {
             Select your image
           </VuiTypography>
         </VuiBox>
-      </VuiBox>
-      <VuiBox height="20px"></VuiBox>
-      <VuiBox display="flex" flexDirection="column" sx={{ height: "100%" }}>
-        <GlassMagnifier imageSrc={image ? image : defaultImage} />
+
+        <VuiBox height="20px"></VuiBox>
+        <VuiBox display="flex" flexDirection="column" sx={{ height: "100%" }}>
+          <GlassMagnifier imageSrc={sourceImage ? sourceImage : defaultImage2} />
+        </VuiBox>
       </VuiBox>
       <Grid container rowSpacing={2}>
         <VuiInput
           type="file"
           accept="image/*"
           style={{ visibility: "hidden", display: "null" }}
-          id="contained-button-file"
+          id="source-image-file"
           onChange={onImageChange}
         />
         <Grid item xs={12} justifyContent="center" alignItems="center" display="flex">
-          <label htmlFor="contained-button-file">
+          <label htmlFor="source-image-file">
             <VuiTypography variant="h5" color="text" size="18px">
               <VuiButton
-                htmlFor="contained-button-file"
+                htmlFor="source-image-file"
                 variant="contained"
                 color="primary"
                 component="span"
@@ -136,13 +139,6 @@ const Welcome = () => {
               </VuiButton>
             </VuiTypography>
           </label>
-        </Grid>
-        <Grid item xs={12} justifyContent="center" alignItems="center" display="flex">
-          <VuiButton color="success">
-            <VuiTypography color="white">
-              <PlayArrowIcon sx={{ fontSize: 40 }} />
-            </VuiTypography>
-          </VuiButton>
         </Grid>
       </Grid>
     </Card>

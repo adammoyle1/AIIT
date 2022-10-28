@@ -38,10 +38,22 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
 // Images
 import defaultImage from "assets/images/low_res_main.png";
+// Image magnifiers
+import { GlassMagnifier } from "react-image-magnifiers";
+
+// Constants
+const EDSR_VALUE = "10";
+const ESPCN_VALUE = "20";
+const FSRCNN_VALUE = "30";
+const LapSRN_VALUE = "40";
 
 const Welcome = () => {
   const handleModelChange = (event: SelectChangeEvent) => {
     setModel(event.target.value);
+
+    if (factor != "") {
+      setFactor("");
+    }
   };
 
   const handleFactorChange = (event: SelectChangeEvent) => {
@@ -71,7 +83,21 @@ const Welcome = () => {
     console.log(data);
   };
 
-  const [age, setAge] = React.useState("");
+  const createSelectElements = () => {
+    let items = [];
+
+    let currentFactors;
+    if (model == null || model == EDSR_VALUE || model == FSRCNN_VALUE || model == ESPCN_VALUE) {
+      currentFactors = [2, 3, 4];
+    } else currentFactors = [2, 4, 8];
+
+    for (let i = 0; i < currentFactors.length; i++) {
+      items.push(<MenuItem value={currentFactors[i]}>x{currentFactors[i]}</MenuItem>);
+    }
+
+    return items;
+  };
+
   const [model, setModel] = React.useState("");
   const [factor, setFactor] = React.useState("");
   const [image, setImage] = React.useState("");
@@ -101,7 +127,7 @@ const Welcome = () => {
         <VuiBox display="flex" sx={{ height: "5%" }}></VuiBox>
 
         <Grid container spacing={0}>
-          <Grid item xxs={12} xs={12} md={6} xl={4} xxl={3}>
+          <Grid item xxs={12} xs={12} md={7} xl={5} xxl={5}>
             <FormControl>
               <Select
                 value={model}
@@ -112,12 +138,10 @@ const Welcome = () => {
                 name="model"
               >
                 <MenuItem value="">Model</MenuItem>
-                <MenuItem value={10}>
-                  <em>EDSR</em>
-                </MenuItem>
-                <MenuItem value={20}>ESPCN</MenuItem>
-                <MenuItem value={30}>FSRCNN</MenuItem>
-                <MenuItem value={40}>LapSRN</MenuItem>
+                <MenuItem value={ESPCN_VALUE}>ESPCN (QUICK)</MenuItem>
+                <MenuItem value={FSRCNN_VALUE}>FSRCNN (QUICK)</MenuItem>
+                <MenuItem value={LapSRN_VALUE}>LapSRN (NORMAL)</MenuItem>
+                <MenuItem value={EDSR_VALUE}>EDSR (LONG)</MenuItem>
               </Select>
               <FormHelperText>
                 <VuiTypography variant="caption" color="white" fontWeight="light">
@@ -126,7 +150,7 @@ const Welcome = () => {
               </FormHelperText>
             </FormControl>
           </Grid>
-          <Grid item xxs={12} xs={12} md={6} xl={6}>
+          <Grid item xxs={12} xs={12} md={5} xl={6}>
             <FormControl>
               <Select
                 value={factor}
@@ -136,13 +160,7 @@ const Welcome = () => {
                 autoWidth
               >
                 <MenuItem value="">Factor</MenuItem>
-                <MenuItem value={2}>
-                  <em>x2</em>
-                </MenuItem>
-                <MenuItem value={3}>x3</MenuItem>
-                <MenuItem value={4}>x4</MenuItem>
-                <MenuItem value={6}>x6</MenuItem>
-                <MenuItem value={8}>x8</MenuItem>
+                {createSelectElements()}
               </Select>
               <FormHelperText>
                 <VuiTypography variant="caption" color="white" fontWeight="light">
@@ -162,7 +180,7 @@ const Welcome = () => {
       </VuiBox>
       <VuiBox height="20px"></VuiBox>
       <VuiBox display="flex" flexDirection="column" sx={{ height: "100%" }}>
-        <img src={image ? image : defaultImage} />
+        <GlassMagnifier imageSrc={image ? image : defaultImage} />
       </VuiBox>
       <Grid container rowSpacing={2}>
         <VuiInput

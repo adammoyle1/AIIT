@@ -28,6 +28,8 @@ import VuiInput from "components/VuiInput/index";
 import VuiButton from "components/VuiButton/index";
 // Icons
 import highResImage from "assets/images/high_res_main.jpg";
+//Image magnifiers
+import { GlassMagnifier } from "react-image-magnifiers";
 
 const Welcome = () => {
   return (
@@ -50,7 +52,7 @@ const Welcome = () => {
         </VuiBox>
         <VuiBox sx={{ height: "25%" }}></VuiBox>
         <VuiBox display="flex" flexDirection="column">
-          <img src={highResImage} />
+          <GlassMagnifier imageSrc={highResImage} />
         </VuiBox>
       </VuiBox>
     </Card>
